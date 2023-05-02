@@ -4,6 +4,7 @@ import {
   getOpsByOperatorId,
   getBusinessesByID,
 } from "../services";
+import { Schedule } from "../type";
 
 export const getOperatorController = async (req: any, res: any) => {
   const operatorId = Number(req.params.operatorId);
@@ -31,24 +32,26 @@ export const getOperatorScheduleController = async (req: any, res: any) => {
   const businessIds = ops.map((op) => op.businessID);
   const businesses = await getBusinessesByID(businessIds);
 
-  const schedules = [];
-  for (let i = 0; i < ops.length; i++) {
-    for (let j = 0; j < businesses.length; j++) {
-      if (ops[i].businessID === businesses[j].id) {
-        schedules.push({
-          businessName: businesses[j].name,
-          opTitle: ops[i].title,
-          pay: ops[i].pay,
-          startTime: ops[i].startTime,
-          endTime: ops[i].endTime,
-          addressLine1: businesses[j].addressLine1,
-          addressLine2: businesses[j].addressLine2,
-          city: businesses[j].city,
-          state: businesses[j].state,
-          zip: businesses[j].zip,
-        });
-      }
+  const schedules: Schedule[] = [];
+
+  ops.forEach((op) => {
+    const business = businesses.find((b) => b.id === op.businessID);
+    if (business) {
+      const schedule: Schedule = {
+        businessName: business.name,
+        opTitle: op.title,
+        pay: op.pay,
+        startTime: op.startTime,
+        endTime: op.endTime,
+        addressLine1: business.addressLine1,
+        addressLine2: business.addressLine2,
+        city: business.city,
+        state: business.state,
+        zip: business.zip,
+      };
+      schedules.push(schedule);
     }
-  }
+  });
+
   res.status(200).json(schedules);
 };

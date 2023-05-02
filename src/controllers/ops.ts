@@ -12,7 +12,6 @@ export const getOpController = async (req: any, res: any) => {
 };
 
 export const createOpController = async (req: any, res: any) => {
-  console.log("create op controller");
   const createdOp = await createOp({
     operatorID: req.body.operatorID,
     businessID: req.body.businessID,
