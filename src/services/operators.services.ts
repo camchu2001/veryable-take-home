@@ -2,10 +2,10 @@ import { PrismaClient } from "@prisma/client";
 
 export const prisma = new PrismaClient();
 
-export async function getOperator(operatorID: number) {
+export async function getOperator(operatorId: number) {
   const findOperator = await prisma.operator.findUnique({
     where: {
-      id: operatorID,
+      id: operatorId,
     },
   });
   return findOperator;

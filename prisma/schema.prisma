@@ -28,7 +28,7 @@ model Business {
   addressLine2 String    @db.VarChar(256)
   city         String    @db.VarChar(256)
   state        String    @db.VarChar(256)
-  zip          Int
+  zip          String    @db.VarChar(256)
   createdAt    DateTime? @default(now())
 
   @@map("businesses")
