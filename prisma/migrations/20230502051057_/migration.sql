@@ -1,2 +1,0 @@
--- AlterTable
-ALTER TABLE "businesses" ALTER COLUMN "zip" SET DATA TYPE VARCHAR(256);

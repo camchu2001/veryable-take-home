@@ -18,7 +18,7 @@ CREATE TABLE "businesses" (
     "addressLine2" VARCHAR(256) NOT NULL,
     "city" VARCHAR(256) NOT NULL,
     "state" VARCHAR(256) NOT NULL,
-    "zip" INTEGER NOT NULL,
+    "zip" VARCHAR(256) NOT NULL,
     "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "businesses_pkey" PRIMARY KEY ("id")
@@ -27,8 +27,8 @@ CREATE TABLE "businesses" (
 -- CreateTable
 CREATE TABLE "ops" (
     "id" SERIAL NOT NULL,
-    "operatorID" INTEGER NOT NULL,
-    "businessID" INTEGER NOT NULL,
+    "operatorId" INTEGER NOT NULL,
+    "businessId" INTEGER NOT NULL,
     "title" TEXT NOT NULL,
     "description" TEXT,
     "pay" INTEGER NOT NULL,

@@ -13,8 +13,8 @@ export const getOpController = async (req: any, res: any) => {
 
 export const createOpController = async (req: any, res: any) => {
   const createdOp = await createOp({
-    operatorID: req.body.operatorID,
-    businessID: req.body.businessID,
+    operatorId: req.body.operatorId,
+    businessId: req.body.businessId,
     title: req.body.title,
     description: req.body.description,
     pay: req.body.pay,

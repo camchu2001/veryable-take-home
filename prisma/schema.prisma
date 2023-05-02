@@ -36,8 +36,8 @@ model Business {
 
 model Op {
   id          Int       @id @default(autoincrement())
-  operatorID  Int
-  businessID  Int
+  operatorId  Int
+  businessId  Int
   title       String
   description String?
   pay         Int

@@ -25,8 +25,8 @@ async function main() {
 
   const op = await prisma.op.create({
     data: {
-      operatorID: operator.id,
-      businessID: business.id,
+      operatorId: operator.id,
+      businessId: business.id,
       title: "Backend Developer",
       description: "Develop and maintain backend.",
       pay: 25,

@@ -32,13 +32,13 @@ export const createOperatorController = async (req: any, res: any) => {
 export const getOperatorSchedulesController = async (req: any, res: any) => {
   const operatorId = Number(req.params.operatorId);
   const ops = await getOpsByOperatorId(operatorId);
-  const businessIds = ops.map((op) => op.businessID);
+  const businessIds = ops.map((op) => op.businessId);
   const businesses = await getBusinessesByID(businessIds);
 
   const schedules: Schedule[] = [];
 
   ops.forEach((op) => {
-    const business = businesses.find((b) => b.id === op.businessID);
+    const business = businesses.find((b) => b.id === op.businessId);
     if (business) {
       const schedule: Schedule = {
         businessName: business.name,
