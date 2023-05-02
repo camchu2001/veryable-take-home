@@ -21,7 +21,10 @@ export const createOperatorController = async (req: any, res: any) => {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
 
-  const newOperator = await createOperator(firstName, lastName);
+  const newOperator = await createOperator({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+  });
 
   res.status(201).json(newOperator);
 };

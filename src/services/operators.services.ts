@@ -1,25 +1,19 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export async function getOperator(operatorId: number) {
-  const findOperator = await prisma.operator.findUnique({
+  const foundOperator = await prisma.operator.findUnique({
     where: {
       id: operatorId,
     },
   });
-  return findOperator;
+  return foundOperator;
 }
 
-export async function createOperator(
-  operatorFirstName: string,
-  operatorLastName: string
-) {
+export async function createOperator(newOperator: Prisma.OperatorCreateInput) {
   const createdOperator = await prisma.operator.create({
-    data: {
-      firstName: operatorFirstName,
-      lastName: operatorLastName,
-    },
+    data: newOperator,
   });
   return createdOperator;
 }

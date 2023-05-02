@@ -3,22 +3,22 @@ import { Prisma, PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export async function getBusiness(businessId: number) {
-  const findBusiness = await prisma.business.findUnique({
+  const foundBusiness = await prisma.business.findUnique({
     where: {
       id: businessId,
     },
   });
 
-  return findBusiness;
+  return foundBusiness;
 }
 
 export async function getBusinessesByID(businessIds: number[]) {
-  const findBusinesses = await prisma.business.findMany({
+  const foundBusinesses = await prisma.business.findMany({
     where: {
       id: { in: businessIds },
     },
   });
-  return findBusinesses;
+  return foundBusinesses;
 }
 
 export async function createBusiness(newBusiness: Prisma.BusinessCreateInput) {
