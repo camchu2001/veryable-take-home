@@ -12,10 +12,10 @@ export async function getBusiness(businessId: number) {
   return findBusiness;
 }
 
-export async function getBusinessesByID(businessIDs: number[]) {
+export async function getBusinessesByID(businessIds: number[]) {
   const findBusinesses = await prisma.business.findMany({
     where: {
-      id: { in: businessIDs },
+      id: { in: businessIds },
     },
   });
   return findBusinesses;

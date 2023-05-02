@@ -26,7 +26,7 @@ export const createOperatorController = async (req: any, res: any) => {
   res.status(201).json(newOperator);
 };
 
-export const getOperatorScheduleController = async (req: any, res: any) => {
+export const getOperatorSchedulesController = async (req: any, res: any) => {
   const operatorId = Number(req.params.operatorId);
   const ops = await getOpsByOperatorId(operatorId);
   const businessIds = ops.map((op) => op.businessID);
