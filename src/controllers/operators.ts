@@ -2,7 +2,7 @@ import {
   getOperator,
   createOperator,
   getOpsByOperatorId,
-  getBusinessesByID,
+  getBusinessesById,
 } from "../services";
 import { Schedule } from "../type";
 
@@ -33,7 +33,7 @@ export const getOperatorSchedulesController = async (req: any, res: any) => {
   const operatorId = Number(req.params.operatorId);
   const ops = await getOpsByOperatorId(operatorId);
   const businessIds = ops.map((op) => op.businessId);
-  const businesses = await getBusinessesByID(businessIds);
+  const businesses = await getBusinessesById(businessIds);
 
   const schedules: Schedule[] = [];
 
