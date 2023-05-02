@@ -12,6 +12,15 @@ export async function getOp(opId: number) {
   return findOp;
 }
 
+export async function getOpsByOperatorId(operatorId: number) {
+  const findOps = await prisma.op.findMany({
+    where: {
+      operatorID: operatorId,
+    },
+  });
+  return findOps;
+}
+
 export async function createOp(newOp: Prisma.OpCreateInput) {
   const createdOp = await prisma.op.create({
     data: newOp,
