@@ -1,4 +1,4 @@
-import { createBusiness, getBusiness } from "../services/businesses.services";
+import { createBusiness, getBusiness } from "../services/";
 
 export const getBusinessController = async (req: any, res: any) => {
   const businessId = Number(req.params.businessId);

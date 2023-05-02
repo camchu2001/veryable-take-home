@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 
-export const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
 export async function getBusiness(businessId: number) {
   const findBusiness = await prisma.business.findUnique({

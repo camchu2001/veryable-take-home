@@ -1,4 +1,4 @@
-import { getOperator, createOperator } from "../services/operators.services";
+import { getOperator, createOperator } from "../services";
 
 export const getOperatorController = async (req: any, res: any) => {
   const operatorId = Number(req.params.operatorId);
